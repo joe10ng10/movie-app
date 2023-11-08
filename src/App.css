@@ -1,0 +1,12 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #292929
+ }
+
+ .search {
+    display: flex;
+    height: 20%;
+    background-color: #1d1d1d
+ }

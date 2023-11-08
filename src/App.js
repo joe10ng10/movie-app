@@ -1,10 +1,17 @@
+import Navbar from "./components/Navbar";
+import "./App.css";
+
 
 
 function App() {
   return (
-    <div className="App">
-      Hello
-    </div>
+    <>
+      <Navbar />
+      <div className="content">
+        <div className="search">Search</div>
+        <div className="movie-display">Movie</div>
+      </div>
+    </>
   );
 }
 
