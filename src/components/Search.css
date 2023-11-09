@@ -1,0 +1,9 @@
+#searchbox {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 10px;
+    background-color: white;
+    align-items: center;
+    width: 50%;
+    min-width: 40px;
+}

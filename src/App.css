@@ -8,5 +8,9 @@
  .search {
     display: flex;
     height: 20%;
-    background-color: #1d1d1d
+    background-color: #1d1d1d;
+    align-items: center;
+    justify-content: center;
  }
+
+ 
