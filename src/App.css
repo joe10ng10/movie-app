@@ -7,10 +7,19 @@
 
  .search {
     display: flex;
-    height: 20%;
+    min-height: 20%;
     background-color: #1d1d1d;
     align-items: center;
     justify-content: center;
+ }
+
+ .movie-recommedations{
+   display: flex;
+   flex-wrap: wrap;
+   padding: 30px;
+   justify-content: space-evenly;
+   gap: 24px;
+
  }
 
  
