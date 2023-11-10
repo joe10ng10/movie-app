@@ -42,3 +42,7 @@
     height: fit-content;
     cursor: pointer;
 }
+
+#add-to-my-list-button{
+    margin: 13px 0;
+}

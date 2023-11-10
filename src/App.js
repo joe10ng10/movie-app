@@ -11,10 +11,13 @@ import SelectedMovieDetails from "./components/SelectedMovieDetails";
 
 function App() {
 
-  const [userInput, updateUserInput] = useState("");
-  const [movieRecommendations, getMovieRecommendations] = useState([]);
-  const [timeoutId, updateTimeoutId] = useState();
-  const [selectedMovie, onMovieSelect] = useState();
+  const [userInput, updateUserInput] = useState("");                     //this is what the user types in the search box
+  const [movieRecommendations, getMovieRecommendations] = useState([]);   //movies from api after the user finishes typing
+  const [timeoutId, updateTimeoutId] = useState();             // for debouncing when user is typing in the search box
+  const [selectedMovie, onMovieSelect] = useState();           //variable used when showing details of a selected movie
+  const [favoriteMovies, addFavoriteMovie] = useState([]);     //variable for movie list
+
+  console.log(favoriteMovies);
 
 
   const onInputChange = (event) => {              //we use this to track the users input so we can
@@ -35,7 +38,6 @@ function App() {
       .then(data => {
         if (data.Search) {
           getMovieRecommendations(data.Search);
-          console.log(movieRecommendations)
         } else {
           getMovieRecommendations([]);
         }
@@ -55,7 +57,7 @@ function App() {
 
 
 
-
+// read below for the comments about this block of code :)
   return (
     <>
       <Navbar />
@@ -64,7 +66,8 @@ function App() {
           <Search userInput={userInput} updateUserInput={updateUserInput} onInputChange={onInputChange} />
         </div>
 
-        {selectedMovie && <SelectedMovieDetails selectedMovie={selectedMovie} onMovieSelect={onMovieSelect} />}
+        
+        {selectedMovie && <SelectedMovieDetails selectedMovie={selectedMovie} onMovieSelect={onMovieSelect} addFavoriteMovie={addFavoriteMovie} />} 
 
         <div className="movie-recommedations">
           
@@ -84,3 +87,17 @@ function App() {
 }
 
 export default App;
+
+
+// on line 74 we have a conditional rendering logic that only renders movie cards to the screen after the user has typed in the searchbar
+//and the api finds the movies if not, you will always see "No movies found." on the screen
+
+//on line 70 we have a conditional rendering logic that only renders movie details if the user clicks on a movie card
+//ps. clicking on a card puts a movie object into the "selectedMovie" useState hook
+
+
+// In Summary....
+// The running order/logic of this code when the user types in the search bar goes as follows
+// 1. Search.js (line 10-16)
+// 2. MovieCard.js
+// 3. SelectedMovieDetails.js 

@@ -1,16 +1,17 @@
 .content {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #292929
  }
 
  .search {
     display: flex;
-    min-height: 20%;
+    min-height: 20vh;
     background-color: #1d1d1d;
     align-items: center;
     justify-content: center;
+    
  }
 
  .movie-recommedations{

@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import "./SelectedMovieDetails.css";
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import { Button } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 
-const SelectedMovieDetails = ({selectedMovie, onMovieSelect}) => {
+const SelectedMovieDetails = ({selectedMovie, onMovieSelect, addFavoriteMovie}) => {
 
     const [movieInfo, setMovieInfo] = useState();
 
+    
+    // we call this api to get info about the selectedMovie ID (URL takes the imdbID) and save the info
+    // in the movieInfo useState variable (go to MovieCard.js line 9 to understand)
     useEffect(() => {
         fetch(`http://www.omdbapi.com/?apikey=df5008c3&i=${selectedMovie}`)
             .then(response => response.json())
@@ -29,6 +34,13 @@ const SelectedMovieDetails = ({selectedMovie, onMovieSelect}) => {
         <span id="other-selected-movie-details">Director: <span style={{opacity: 0.7}}>{movieInfo?.Director}</span></span>
         <span id="other-selected-movie-details">Actors: <span style={{opacity: 0.7}}>{movieInfo?.Actors}</span></span>
         <span id="other-selected-movie-details">Plot: <span style={{opacity: 0.7}}>{movieInfo?.Plot}</span></span>
+        <span id="add-to-my-list-button">
+          <Button onClick={() => addFavoriteMovie(selectedMovie)} variant="contained" size="large" sx={{backgroundColor: "white"}}>
+            <AddIcon />
+            Add To My List
+          </Button>
+        </span>
+        
         
         
       </div>
