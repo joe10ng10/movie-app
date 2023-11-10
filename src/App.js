@@ -3,6 +3,7 @@ import "./App.css";
 import Search from "./components/Search";
 import MovieCard from "./components/MovieCard";
 import React, { useState, useEffect } from 'react';
+import SelectedMovieDetails from "./components/SelectedMovieDetails";
 
 
 
@@ -13,6 +14,7 @@ function App() {
   const [userInput, updateUserInput] = useState("");
   const [movieRecommendations, getMovieRecommendations] = useState([]);
   const [timeoutId, updateTimeoutId] = useState();
+  const [selectedMovie, onMovieSelect] = useState();
 
 
   const onInputChange = (event) => {              //we use this to track the users input so we can
@@ -62,10 +64,13 @@ function App() {
           <Search userInput={userInput} updateUserInput={updateUserInput} onInputChange={onInputChange} />
         </div>
 
+        {selectedMovie && <SelectedMovieDetails selectedMovie={selectedMovie} onMovieSelect={onMovieSelect} />}
+
         <div className="movie-recommedations">
+          
           {movieRecommendations.length > 0 ? (
             movieRecommendations.map((movieRecommendation) => (
-              <MovieCard key={movieRecommendation.imdbID} movieRecommendation={movieRecommendation} />
+              <MovieCard key={movieRecommendation.imdbID} movieRecommendation={movieRecommendation} onMovieSelect={onMovieSelect} />
             ))
           ) : (
             <p>No movies found.</p>

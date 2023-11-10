@@ -1,0 +1,44 @@
+#selected-movie {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 30px;
+    justify-content: center;
+    border-bottom: 1px solid lightgray;
+}
+
+#selected-movie-image {
+    object-fit: cover;
+    height: 352px;
+}
+
+#selected-movie-details {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+#selected-movie-name {
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+    margin: 15px 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-transform: capitalize;
+}
+
+#other-selected-movie-details {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    margin: 4px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-transform: capitalize;
+}
+
+#cancel-button{
+    height: fit-content;
+    cursor: pointer;
+}
