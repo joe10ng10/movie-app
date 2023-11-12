@@ -1,0 +1,40 @@
+#favorite-movie-card {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 280px;
+    box-shadow: 0 3px 10px 0 #aaa;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    
+    
+}
+
+#favorite-movie-poster {
+    height: 362px;
+    object-fit: cover;
+}
+
+#favorite-movie-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 15px 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: black;
+}
+
+#favorite-movie-info-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#favorite-movie-info {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    text-transform: capitalize;
+}

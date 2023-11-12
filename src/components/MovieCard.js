@@ -1,5 +1,5 @@
 import React from 'react'
-import "./MovieCard.css"
+import "./styles/MovieCard.css"
 
 const MovieCard = ({movieRecommendation, onMovieSelect}) => {
   
@@ -7,7 +7,7 @@ const MovieCard = ({movieRecommendation, onMovieSelect}) => {
 
   return (
     <div id="movie-card" onClick={() => {onMovieSelect(imdbID)}}>
-      <img src ={Poster} id="movie-poster"></img>
+      <img src ={Poster} id="movie-poster" alt={Title}></img>
       <span id="movie-name">{Title}</span>
       <div id="movie-info-column">
         <span id="movie-info">Year: {Year}</span>
